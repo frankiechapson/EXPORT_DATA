@@ -13,15 +13,17 @@ This is a simple function which we can extend with any data type what we would l
 It is very easy to use. It has only one mandatory parameter: the name of the table what we want to export.
 The second paramter is optional. That could be a where condition to specify the row(s) what we would like to export.
 So we can call this way:
-
+```sql
     select * from table( EXPORT_DATA ( 'all_types' ) );
+```
 or this way:
-
+```sql
     select * from table( EXPORT_DATA ( 'persons' , 'id=103' ) );
+```
 
 
 the result (an sql script) will be like this (the "all_types" table contains only one row and a lot of different type columns see the test script! ):
-
+```sql
     DECLARE
         V_ALL_TYPES    ALL_TYPES%rowtype;
         function TU_NUMBER( I_STRING in varchar2 ) return number is
@@ -60,7 +62,7 @@ the result (an sql script) will be like this (the "all_types" table contains onl
         commit;
     END;
     /
-    
+```    
 
 ## Inside
 
